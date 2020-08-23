@@ -1,6 +1,6 @@
 # Configuring xiaomi wifi repeater 2 without MiHome
 
-We will setup xiaomi wifi repeater 2 without resorting to the official Xiaomi MiHome app.
+The goal is to setup a xiaomi wifi repeater 2 without resorting to the official Xiaomi MiHome app.
 
 Xiaomi devices are nice and cheap which make them interesting for diy projects, 
 but they lack openness, and are bound to xiaomi Mihome application.
