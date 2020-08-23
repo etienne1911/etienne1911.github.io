@@ -118,9 +118,8 @@ replacing <router_ssid> by the SSID of the router you want to extend the range o
 	INFO  Attempting to configure 10.10.10.1
 	Updated wireless configuration
 
-From now if the configuration worked well, the led of your device should turn blue, 
-and you should see a new network appearing under the same name as your router with suffix _PLUS
+If the configuration went well, the led of the device should turn blue, and a new network should appear under the same name of the router with suffix _PLUS
 
-You can now connect to this network with the same password as your router.
+You can connect to this new network with the same password as your router wifi network.
 
-I hope this tutorial will be helpul and hopefully save you time.
+I hope this tutorial was helpul and hopefully saved you precious time configuring this repeater.
