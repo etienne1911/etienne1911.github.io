@@ -40,10 +40,10 @@ Once installed you should have `mirobo` and `miiocli` python tools available fro
 # Steps 
 ## Getting device IP
 
-First we need to discover and retrieve device IP.
+We will try to discover and retrieve device IP.
 
-You can now plug your device to power it and it should blink, showing it cannot connect to any network yet. 
-Once configuration done the light will switch to a permanent blue.
+First plug your device to power it. It should blink showing it cannot connect to any network yet. 
+Once the configuration done, the light will switch to a permanent blue.
 
 From now on you'll need to switch your computer wifi to the device network appearing under `xiaomi_wifi_reapeater...`
 (this also means you'll loose your internet connection if your were connected in Wifi)
@@ -52,20 +52,20 @@ Once connected to the device's own network, use the following command:
 	
 	miio discover --sync
 
-to get device's IP and token which in my case was reported under IP address 10.10.10.1.
+to get device's IP and token which in my case was reported 10.10.10.1 as the IP address.
 
-Although this step worked flawlessly on linux, for some reason, on windows I couldn't manage to discover any device..
+Although this step worked flawlessly on linux, for some reason on windows, I couldn't manage to discover any device..
 either using `miio` or `python-miio` `mirobo` tool.
 
-Nevertheless I could still manage to do the further steps with windows, using device's IP address retrieved with linux.
+Nevertheless it is still possible to do the further steps with windows, using device's IP address retrieved on linux.
 
-So if you're on windows and it doesn't work, you can try to skip this step and use 10.10.10.1 as device's IP for next steps.
+So if you're on windows and it doesn't work, you can try to skip this section and use 10.10.10.1 as device's IP for next steps.
 
 You can check it it works, using:
   
 	miio inspect 10.10.10.1
 
-which should return something similar to: 
+which should return something like this: 
 
 	INFO  Attempting to inspect 10.10.10.1
 	
@@ -88,18 +88,18 @@ which should return something similar to:
 	Remote access (Mi Home App): Maybe
 
 
-# wifi router configuration
+# device configuration
 
 Initially your device isn't configured so unable to connect to your home wifi network. 
 So we need to provide wifi connexion information so it can extend the range of your router
 
-Optionnaly, if you installed python-miio, you can check current device configuration with:
+If you installed python-miio, you can optionnaly check current device configuration with:
 
 	miiocli.exe wifirepeater --ip <device_IP> --token <device_token> info
 	
 replacing <device_IP> and <device_token> by the ones you obtained in previous step
 
-which should return somthing similar to this, if your device has never been configured:
+which should return somthing similar to this, if your device has never been configured before:
 
 	Model: xiaomi.repeater.v2
 	Hardware version: R02
@@ -118,8 +118,8 @@ replacing <router_ssid> by the SSID of the router you want to extend the range o
 	INFO  Attempting to configure 10.10.10.1
 	Updated wireless configuration
 
-If the configuration went well, the led of the device should turn blue, and a new network should appear under the same name of the router with suffix _PLUS
+If the configuration went well, the led of the device should turn blue, and a new network should appear under the same name as your router except it has a suffix _PLUS
 
-You can connect to this new network with the same password as your router wifi network.
+You can connect to this new network with the same password as your router.
 
-I hope this tutorial was helpul and hopefully saved you precious time configuring this repeater.
+I hope this tutorial was helpul and hopefully saved you precious time.
