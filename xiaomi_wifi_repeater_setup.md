@@ -88,10 +88,9 @@ which should return something like this:
 	Remote access (Mi Home App): Maybe
 
 
-# device configuration
+## device configuration
 
-Initially your device isn't configured so unable to connect to your home wifi network. 
-So we need to provide wifi connexion information so it can extend the range of your router
+Before your device can connect to your home wifi network it has to know wifi connexion parameters.
 
 If you installed python-miio, you can optionnaly check current device configuration with:
 
@@ -122,4 +121,4 @@ If the configuration went well, the led of the device should turn blue, and a ne
 
 You can connect to this new network with the same password as your router.
 
-I hope this tutorial was helpul and hopefully saved you precious time.
+I hope this tutorial was helpul and hopefully saved you precious time configuring.
