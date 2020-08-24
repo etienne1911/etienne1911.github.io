@@ -1,13 +1,13 @@
 # Configuring xiaomi wifi repeater 2 without MiHome
 
-The goal is to setup a xiaomi wifi repeater 2 without resorting to the official Xiaomi MiHome app.
+The goal here will be the setup of a xiaomi wifi repeater 2 without resorting to the official Xiaomi MiHome app.
 
 Xiaomi devices are nice and cheap which make them interesting for diy projects, 
 but they lack openness, and are bound to xiaomi Mihome application.
 
-Not only, original app isn't very well made in my opinion but it implies installing it on you phone, creating an account and sharing your data with xiaomi servers. Which for whoever cares about privacy isn't very desirable.
+Not only, original app isn't very convenient in my opinion but it implies installing it on you phone, creating an account and sharing your data with xiaomi servers. Which for whoever cares about privacy isn't very desirable.
 
-I did not find any tutorial yet on how to configure this device without MI Home, so I decided to write one.
+I did not find any tutorial yet on how to configure this device without MI Home, so I decided those simple steps.
 
 # Tools
 
@@ -18,7 +18,7 @@ I found 2 tools able to talk directly with xiaomi devices:
 - [python-miio](https://github.com/rytilahti/python-miio/)
 
 Although `python-miio` is supposed to support xiaomi wifi repeater, I could not manage to to configure my device with it.
-Instead I had to use the other nodejs based library called `miio` which did the job flawlessly.
+Instead I used another nodejs based library called `miio` which did the job perfectly.
 
 ## miio
 
@@ -30,9 +30,9 @@ Once done you should be able to call it directly. If not check path where node j
 
 ## python-miio
 
-I just mention installtion it in case you need it, but as mentionned before I couldn't manage to configure my device with it.
+I just mention it in case you need it, but as said before we'll not use it to do the setup.
 
-This time library is writen in python. You can follow their [doc](python-miio.readthedocs.io/) to install it.
+You can follow their [doc](python-miio.readthedocs.io/) for installation.
 I advice you to use virtual env which makes usage of python tool cleaner.
 
 Once installed you should have `mirobo` and `miiocli` python tools available from command line.
@@ -52,16 +52,16 @@ Once connected to the device's own network, use the following command:
 	
 	miio discover --sync
 
-to get device's IP and token which in my case was reported 10.10.10.1 as the IP address.
+to get device's IP and token. In my case 10.10.10.1 was the IP address reported by the tool.
 
-Although this step worked flawlessly on linux, for some reason on windows, I couldn't manage to discover any device..
+Although this step worked flawlessly on linux, for some reason on windows, it wasn't possible to discover any device..
 either using `miio` or `python-miio` `mirobo` tool.
 
-Nevertheless it is still possible to do the further steps with windows, using device's IP address retrieved on linux.
+Nevertheless it is still possible to do the further steps with windows, using device's IP address retrieved from linux.
 
-So if you're on windows and it doesn't work, you can try to skip this section and use 10.10.10.1 as device's IP for next steps.
+So if you're on windows and it doesn't work, you can try to skip this section and use 10.10.10.1 as device's IP for the next steps.
 
-You can check it it works, using:
+You can check it works, using:
   
 	miio inspect 10.10.10.1
 
@@ -90,7 +90,7 @@ which should return something like this:
 
 ## device configuration
 
-Before your device can connect to your home wifi network it has to know wifi connexion parameters.
+Before your device can connect to your home wifi network it has to know your connection settings/parameters.
 
 If you installed python-miio, you can optionnaly check current device configuration with:
 
@@ -98,7 +98,7 @@ If you installed python-miio, you can optionnaly check current device configurat
 	
 replacing <device_IP> and <device_token> by the ones you obtained in previous step
 
-which should return somthing similar to this, if your device has never been configured before:
+which should return something similar to this, if your device has never been configured before:
 
 	Model: xiaomi.repeater.v2
 	Hardware version: R02
@@ -107,7 +107,7 @@ which should return somthing similar to this, if your device has never been conf
 	AP: {'rssi': 0, 'ssid': '', 'bssid': '', 'rx': 0, 'tx': 0}
 
 
-Now, device configuration is done by typing this command:
+Now the most important part, device configuration, is done with this command:
 
 	$ miio configure 10.10.10.1 --ssid <router_ssid> --passwd <router_wifi_password>
 
@@ -121,4 +121,4 @@ If the configuration went well, the led of the device should turn blue, and a ne
 
 You can connect to this new network with the same password as your router.
 
-I hope this tutorial was helpul and hopefully saved you precious time configuring.
+I hope this tutorial was helpul and hopefully saved you precious configuration time.
